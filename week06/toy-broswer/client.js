@@ -227,8 +227,8 @@ void async function () {
         }
     })
 
-    let res = await request.send()
+    let response = await request.send()
 
     let dom = parser.parseHTML(response.body)
-    console.log(res)
+    console.log(response)
 }()

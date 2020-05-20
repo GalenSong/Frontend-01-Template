@@ -45,5 +45,44 @@ Transfer-Encoding: chunked
 状态机通常包含有限个状态，通过输入或事件（Event）执行某一动作（Action）实现状态切换（Transition）
 注意：状态机的当前状态是其所包含的有限状态之一；一个动作执行会将当前状态转换为另一状态
 
+## HTML ---> DOM
+### 文件拆分
+parser接受HTML文本作为参数，返回DOM树
+
+### 创建状态机
+//EOF：End Of File 匹配文件结尾，防止文本结束，分析器仍然等待下一状态
+
+https://html.spec.whatwg.org/#overview-of-the-parsing-model
+### 解析标签
+data tagOpen endTagOpen tagName beforeAttributeName selfClosingTag
+
+### 创建元素
+emitToken
+状态机中，出了状态迁移，还会加入业务逻辑
+
+### 处理属性
+属性值分为单引号、双引号、无引号三种
+
+### 构件DOM树——栈
+所有元素存入顶层元素document的children中；
+
+tag element
+遇见开始标签时创建元素入栈，遇到结束标签出栈；
+自封闭标签立即入栈，立即出栈；
+
+### 文本节点
+多个文本节点需要合并；文本节点不会入栈
+
+问答：
+EOF
+JSX解析不是用状态机
+为什么浏览器要限制http并发个数
+LL LR算法   编译原理
+html js css解析，词法使用状态机，语法部分使用LL、LR算法实现
+状态机一般适合做词法分析，更复杂的处理逻辑不适合
+龙书
+
+html语法分析parse
+
 
 
