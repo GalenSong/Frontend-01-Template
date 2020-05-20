@@ -18,6 +18,8 @@ function match(element, selector) {
         return false
     }
 
+    // let selectorParts = 
+
     if(selector.codePointAt(0) === "#") {
         let attr = element.attributes.filter(attr => attr.name === "id")[0]
         if(attr && attr.value === selector.replace("#", '')) {
@@ -25,8 +27,12 @@ function match(element, selector) {
         }
     } else if(selector.codePointAt(0) === ".") {
         let attr = element.attributes.filter(attr => attr.name === "class")[0]
-        if(attr && attr.value === selector.replace(".", '')) {
-            return true
+        if(attr) {
+            // 匹配带空格的 Class 选择器
+            let classList = attr.split(" ")
+            if(classList.length && classList.includes(selector.replace(".", ''))) {
+                return true
+            }
         }
     } else {
         if(element.tagName === selector) {
@@ -68,6 +74,7 @@ function computeCSS(element) {
         element.computedStyle = {}
 
         for(let rule of rules) {
+            //用正则处理复杂表达式，及复合表达式，待补充
             let selectorParts = rule.selectors[0].split(" ").reverse()
 
             if(!match(element, selectorParts[0])) continue
