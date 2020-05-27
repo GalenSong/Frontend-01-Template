@@ -1,5 +1,8 @@
 .DS_Store
 .idea
-week06/.vscode/launch.json
 week06/toy-broswer/.vscode
+week07/toy-broswer/.vscode
 week06/toy-broswer/node_modules
+week07/toy-broswer/node_modules
+week06/.vscode/launch.json
+week07/.vscode/launch.json
