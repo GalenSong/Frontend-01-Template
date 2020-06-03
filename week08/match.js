@@ -33,9 +33,8 @@ function match(element, selector) {
             }
             selectors[i].push(item)
         }
+        selectors.reverse()
     }
-
-    selectorList.reverse()
 
     for (let {selectors, hasParent} of selectorList) {
         let ancestor = null
