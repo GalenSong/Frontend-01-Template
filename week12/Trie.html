@@ -1,0 +1,37 @@
+<script>
+class Trie {
+    constructor() {
+        this.root = Object.create(null)
+    }
+
+    insert(word) {
+        let node = this.root
+        for(let c of word) {
+            if(!node[c]) {
+                node[c] = Object.create(null)
+            }
+            node = node[c]
+        }
+        if(!("$" in node)) {
+            node["$"] = 0
+        }
+        node["$"]++
+    }
+
+    find(pattern) {
+        let node = this.root
+        for(let c of pattern) {
+            if(!node[c]) {
+                return false
+            }
+            node = node[c]
+        }
+        if(!node['$']) {
+            return false
+        }
+
+        return true
+
+    }
+}
+</script>
