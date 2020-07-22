@@ -1,0 +1,13 @@
+{
+  "name": "Component",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "scripts": {
+    "start": "webpack --config webpack.config.js"
+  }
+}
